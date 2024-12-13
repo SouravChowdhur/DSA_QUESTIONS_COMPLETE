@@ -1,0 +1,23 @@
+void insertAtElement(stack<int>& myStack, int x){
+    if(myStack.empty()){
+        myStack.push(x);
+        return;
+    }
+    int num = myStack.top();
+    myStack.pop();
+
+    insertAtElement(myStack, x);
+    myStack.push(num);
+}
+void reverseStack(stack<int> &stack) {
+    // Write your code here
+    if(stack.empty()){
+        return;
+    }
+
+    int num = stack.top();
+    stack.pop();
+
+    reverseStack(stack);
+    insertAtElement(stack, num);
+}
